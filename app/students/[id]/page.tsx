@@ -1,4 +1,3 @@
-import type { Student } from "@/types/student";
 import { notFound } from "next/navigation";
 import { getStudentById } from "@/lib/students";
 
