@@ -19,6 +19,10 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
             <Link href="/students">Students</Link>
             {" | "}
             <Link href="/students/courses">Courses</Link>
+             {" | "}
+            <Link href="/login">Login</Link>
+             {" | "}
+            <Link href="/register">Register</Link>
           </nav>
         </header>
 
