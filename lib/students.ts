@@ -1,7 +1,8 @@
 import type { Student } from "@/types/student";
 
+const apiUrl = process.env.API_URL;
 export async function getStudents() : Promise<Student[]> {
-    const response = await fetch("https://dummyjson.com/users", {
+    const response = await fetch(`${apiUrl}/users`, {
         // next: {
         //     revalidate: 10,
         // }
@@ -18,7 +19,7 @@ export async function getStudents() : Promise<Student[]> {
 }
 
 export async function getStudentById(id: string): Promise<Student | null> {
-  const response = await fetch(`https://dummyjson.com/users/${id}`,
+  const response = await fetch(`${apiUrl}/users/${id}`,
     {
       next: {
         revalidate: 60,
