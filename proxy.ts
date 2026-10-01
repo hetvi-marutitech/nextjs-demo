@@ -1,15 +1,16 @@
+import { auth } from "@/auth";
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
-  const authToken = request.cookies.get("auth-token")?.value;
+export const proxy = auth((request) => {
+  const isLoggedIn = !!request.auth;
 
-  if (authToken) {
+  if (isLoggedIn) {
     return NextResponse.next();
   }
 
   const pathname = request.nextUrl.pathname;
 
+  // API requests should receive 401
   if (pathname.startsWith("/api/")) {
     return NextResponse.json(
       {
@@ -21,10 +22,11 @@ export function middleware(request: NextRequest) {
     );
   }
 
+  // Page requests should redirect to login
   return NextResponse.redirect(
     new URL("/login", request.url)
   );
-}
+});
 
 export const config = {
   matcher: [
