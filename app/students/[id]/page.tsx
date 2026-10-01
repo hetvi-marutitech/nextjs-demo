@@ -14,14 +14,15 @@ export default async function StudentDetailsPage({params}: {
 
   return (
     <main>
-      <h1>Student Details</h1>
-
-      <h2>
-        {student.firstName} {student.lastName}
-      </h2>
+      
+      <div style={{ border: "1px solid #ccc", padding: "10px"}}>
+        <p>
+          {student.firstName} {student.lastName}
+        </p>
 
       <p>Email: {student.email}</p>
       <p>Age: {student.age}</p>
+      </div>
     </main>
   );
 }

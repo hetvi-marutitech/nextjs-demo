@@ -7,18 +7,20 @@ export default async function Home() {
   console.log("Session in Home page:", session);
   return (
     <main>
-      <h1>Students</h1>
+      {session ? (
+        <p>Welcome, {session.user?.name}!</p>
+      ) : (
+        <p>You are not logged in.</p>
+      )}
 
-      <h2>Session Information</h2>
-
+      {/* <p>id: {session?.user?.id}</p>
+      <p>role: {session?.user?.role}</p>
       <pre>
         {JSON.stringify(session, null, 2)}
-      </pre>
+      </pre> */}
 
-        <p>id: {session?.user?.id}</p>
-        <p>role: {session?.user?.role}</p>
 
-      <LogoutButton />
+      {/* <LogoutButton /> */}
     </main>
   );
 }

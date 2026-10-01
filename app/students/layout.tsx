@@ -7,18 +7,7 @@ export default function StudentsLayout({
 }) {
   return (
     <div>
-      <header>
-        <h1>Student Management</h1>
-
-        <nav>
-          <Link href="/students">Students</Link>
-          {" | "}
-          <Link href="/students/courses">Courses</Link>
-        </nav>
-      </header>
-
-      <hr />
-
+      <hr/>
       <section>{children}</section>
     </div>
   );

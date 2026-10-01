@@ -1,7 +1,7 @@
 export default function CoursesPage() {
   return (
     <main>
-      <h1>Student Courses</h1>
+      <p>All the courses will be displayed here.</p>
     </main>
   );
 }

@@ -6,19 +6,12 @@ export default async function StudentsPage() {
   const students = await getStudents();
   return (
     <main>
-      <h1>Students</h1>
-
       {students.map((student) => (
-        <div key={student.id}>
-          <h2>
-            Name: {student.firstName} {student.lastName}
-          </h2>
-
+        <div key={student.id} style={{ border: "1px solid #ccc", padding: "10px", marginBottom: "10px" }}>
+          <p> Name: {student.firstName} {student.lastName}</p>
           <p>Email: {student.email}</p>
           <p>Age: {student.age}</p>
-          <Link href={`/students/${student.id}`}>
-            View Details
-          </Link>
+          <Link href={`/students/${student.id}`}>View Details</Link>
         </div>
       ))}
 
